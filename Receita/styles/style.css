@@ -1,0 +1,222 @@
+:root {
+    /* Colors */
+    --color-light: hsl(0, 0%, 100%);
+    --color-dark: hsl(24, 5%, 18%);
+    --color-gray: hsl(30, 10%, 34%);
+    --color-light-100: hsl(30, 54%, 90%);
+    --color-light-150: hsl(30, 18%, 87%);
+    --color-accent: hsl(14, 45%, 36%);
+    --color-rose-50: hsl(330, 100%, 98%);
+    --color-rose-800: hsl(332, 51%, 32%);
+
+    /* Font Family */
+    --font-family-base: "Outfit";
+    --font-family-alternate: "Young Serif";
+
+    /* Font Size */
+    --fs-base: 16px;
+    --fs-16px: 1rem;
+    --fs-20px: 1.25rem;
+    --fs-28px: 1.75rem;
+    --fs-36px: 2.25rem;
+    --fs-40px: 2.5rem;
+
+    /* Font Weight */
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 700;
+
+    /* Radius */
+    --radius-12: 0.75rem;
+    --radius-16: 1rem;
+    --radius-22: 1.375rem;
+
+    /* Other */
+    --border: 1px solid var(--color-light-150);
+    --width-container: 736px;
+    --container-padding: 40px;
+}
+
+/* ====================== Globals ====================== */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-family-base);
+    font-size: var(--fs-base);
+    color: var(--color-gray);
+    background-color: var(--color-light-100);
+    line-height: 1.5;
+}
+
+/* ====================== Utils ====================== */
+
+.app {
+    max-width: var(--width-container);
+    margin: 124px auto;
+    background-color: var(--color-light);
+    border-radius: var(--radius-22);
+    padding-block: var(--container-padding);
+}
+
+.padding-container-X {
+    padding-inline: var(--container-padding);
+}
+
+/* ====================== Header ====================== */
+.header__wrapper {
+    margin-bottom: 2.18rem;
+}
+
+.header__image-wrapper {
+    width: 100%;
+    padding-inline: var(--container-padding);
+}
+
+.header__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: var(--radius-16);
+}
+
+.header__title {
+    font-size: var(--fs-40px);
+    font-weight: var(--regular);
+    font-family: var(--font-family-alternate);
+    color: var(--color-dark);
+    margin-bottom: 0.87rem;
+}
+
+.header__description {
+    margin-bottom: 2rem;
+}
+
+.header__time-info {
+    padding: 1.62rem 1.5rem;
+    background-color: var(--color-rose-50);
+    border-radius: var(--radius-16);
+}
+
+.header__time-info-title {
+    margin-bottom: 0.87rem;
+    color: var(--color-rose-800);
+    font-size: var(--fs-20px);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.header__item::marker {
+    color: var(--color-rose-800);
+}
+
+.list__item {
+    padding-left: 0.5rem;
+    list-style-position: inside;
+}
+
+/* ====================== Main ====================== */
+.main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.18rem;
+}
+
+.section:not(:last-child) {
+    padding-bottom: 2.18rem;
+    border-bottom: var(--border);
+}
+
+.section__item::marker {
+    color: var(--color-accent);
+}
+
+ol {
+    position: relative;
+    list-style: none;
+    counter-reset: li;
+    padding-left: 1.25rem;
+
+}
+
+ol .section__item::before {
+    content: counter(li) ".";
+    counter-increment: li;
+    font-family: var(--font-family-base);
+    color: var(--color-accent);
+    font-weight: var(--bold);
+    font-size: var(--fs-16px);
+    position: absolute;
+    left: 0;
+    width: 1.25rem;
+    text-align: right;
+    padding-right: 0.625rem;
+}
+
+.section__title {
+    font-family: var(--font-family-alternate);
+    font-size: var(--fs-28px);
+    margin-bottom: 1.625rem;
+    color: var(--color-accent);
+}
+
+.section__desctiontion {
+    margin-bottom: 1.5rem;
+}
+
+.nutrition__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-family-base);
+}
+
+.nutrition__table-tr:not(:last-child) {
+    border-bottom: var(--border);
+}
+
+.nutrition__table-td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.nutrition__table-td:last-child {
+    color: var(--color-accent)
+}
+
+@media(width <=747px) {
+    .padding-container-X {
+        --container-padding: 1.875rem;
+        padding-inline: var(--container-padding);
+    }
+
+    .header__title {
+        font-size: var(--fs-36px);
+    }
+
+    .header__image {
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .app {
+        margin: 0 auto;
+        border-radius: 0;
+        padding-top: 0;
+    }
+
+    .header__image-wrapper {
+        --container-padding: 0;
+        padding-inline: var(--container-padding);
+    }
+}
