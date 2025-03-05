@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+
+:root {
+    font-size: 62.5%;
+
+    /* Cores */
+    --Nutmeg: hsl(14, 45%, 36%);
+    --DarkRaspberry: hsl(332, 51%, 32%);
+    --White: hsl(0, 0%, 100%);
+    --RoseWhite: hsl(330, 100%, 98%);
+    --Eggshell: hsl(30, 54%, 90%);
+    --LightGrey: hsl(30, 18%, 87%);
+    --WengeBrown: hsl(30, 10%, 34%);
+    --DarkCharcoal: hsl(24, 5%, 18%);
+
+    /*font-family: "Young Serif", serif;
+    font-family: "Outfit", sans-serif; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; 
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2 {
+    font-family: "Young Serif",serif;
+
+    color: var(--Nutmeg);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Outfit", sans-serif;
+
+    height: 100vh;
+    padding: 5rem;
+
+    font-size: 1.6rem;
+    font-weight: 400;
+
+    background-color: var(--Eggshell);
+    color: var(--WengeBrown);
+}
+
+.container {
+    width: 73.6rem;
+    height: auto;
+    margin: auto 3rem;
+    padding: 4rem;
+    border-radius: 2rem;
+
+    background-color: var(--White);
+}
+
+/* Hero */
+
+.hero img {
+    height: 30rem;
+    border-radius: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 400;
+
+    margin-top: 2rem;
+
+    color: var(--DarkCharcoal);
+}
+
+.hero p {
+    margin-top: 1.5rem;
+}
+
+.hero article {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: auto;
+
+    padding: 2.5rem 3rem;
+    margin-top: 3rem;
+    border-radius: 1rem;
+
+    background-color: var(--RoseWhite);
+}
+
+.hero article li {
+    margin-left: 3rem;
+    font-size: 1.6;
+
+    color: var(--DarkRaspberry);
+}
+
+.hero article h2 {
+    font-family: "Outfit", sans-serif;
+
+    font-size: 2rem;
+
+    color: var(--DarkRaspberry);
+}
+
+.hero article p {
+    color: var(--WengeBrown);
+}
+
+/* Ingredientes */
+
+main section {
+    border-bottom: .1rem var(--LightGrey) solid;
+    padding-block: 3rem;
+}
+
+.ingredients h2 {
+    margin-top: 2rem;
+}
