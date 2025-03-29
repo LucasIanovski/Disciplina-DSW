@@ -1,0 +1,89 @@
+/* Reset para remover margens padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 10vh auto 15vh; /* Header - Conteúdo - Rodapé */
+    grid-template-columns: 3fr 1fr; /* 3 partes para conteúdo, 1 para sidebar */
+    grid-template-areas: 
+        "header header"
+        "content sidebar"
+        "footer footer";
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    grid-area: header;
+    background-color: #4DD0E1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+/* Conteúdo principal */
+.content {
+    grid-area: content;
+    background-color: #E91E63;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Barra lateral */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #DCCE7D;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Rodapé com 3 partes */
+.footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.parte {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    font-style: italic;
+    border-right: 2px solid white;
+}
+
+/* Remove a borda da última parte */
+.parte:last-child {
+    border-right: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "content"
+            "sidebar"
+            "footer";
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+    }
+}
+
