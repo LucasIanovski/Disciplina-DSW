@@ -5,36 +5,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Exemplo 03</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+  <!-- link href= Importa o CSS do Bootstrap de uma CDN para usar suas classes. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<!--Bootstrap usa um sistema de 12 colunas. Você organiza o layout com row (linha) e col (coluna).-->
 
 <body>
-  <div class="container text-center">
+  <!--container-lg: cria um container com largura máxima em telas grandes.-->
+  <!--text-center: centraliza o texto..-->
+  <!--text-light: deixa o texto claro (branco).-->
+  <!--display-1: estilo de fonte grande (título).-->
+  <div class="container-lg text-center text-light display-1">
     <div class="row">
-      <div class="col-12 col-md-2 col-lg-4 bg-primary p-5">
+      <!--Primeira linha..-->
+      <!--col-12: ocupa 100% da largura em telas pequenas.-->
+      <!--col-md-6: ocupa 50% da largura em telas médias pra cima..-->
+      <!--bg-primary, bg-success: cores de fundo.-->
+      <!--p-5: padding (espaçamento interno)..-->
+      <!--Primeira linha..-->
+      <div class="col-12 col-md-6 bg-primary p-5">
         <h1>1</h1>
       </div>
-      <div class="col bg-secondary p-5">
+      <div class="col-12 col-md-6 bg-success p-5">
         <h1>2</h1>
       </div>
-      <div class="col-12 col-md-2 col-lg-4 bg-success p-5">
+      <!--Final Primeira linha..-->
+
+      <!--Segunda Linha-->
+      <!--Cada coluna tem col-md-4, ou seja serão divididas ex uma coluna dividida em 3: 1/3 da linha (4+4+4 = 12 colunas)..-->
+      <div class="col-12 col-md-4 bg-warning p-5">
         <h1>3</h1>
       </div>
+      <div class="col-12 col-md-4 bg-danger p-5">
+        <h1>4</h1>
+      </div>
+      <div class="col-12 col-md-4 bg-info p-5">
+        <h1>5</h1>
+      </div>
+      <!--Final Segunda linha..-->
+</body>
+</html>
+      <div class="ol-12 col-md-3 bg-dark p-5">
+        <h1>6</h1>
+      </div>
+      <div class="col-12 col-md-3 bg-secondary p-5">
+        <h1>7</h1>
+      </div>
+      <div class="col-12 col-md-3 bg-light text-dark p-5">
+        <h1>8</h1>
+      </div>
+      <div class="col-12 col-md-3 bg-primary p-5">
+        <h1>9</h1>
+      </div>
+      <!--Final Terceira linha..-->
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
+
+
+<!--dicas-->
+      <!--Sempre use container para agrupar as coisas.-->
+      <!--Use row para criar linhas.-->
+      <!--Dentro da row, use col-* para as colunas.-->
+      <!--Use bg-* para cores, p-* para espaçamento, e text-* para cor e alinhamento de texto.-->
+      <!--Teste em tamanhos diferentes de tela (responsividade!)..-->
