@@ -1,0 +1,121 @@
+html
+CopyEdit
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Minha Empresa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome (opcional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Estilo customizado (opcional) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">MinhaEmpresa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="carouselExemplo" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/banner1.jpg" class="d-block w-100" alt="Banner 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner2.jpg" class="d-block w-100" alt="Banner 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner3.jpg" class="d-block w-100" alt="Banner 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExemplo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExemplo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Seção de Serviços (Grid) -->
+  <section class="container mt-5">
+    <h2 class="text-center mb-4">Nossos Serviços</h2>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-4 bg-primary text-white text-center rounded shadow">Serviço 1</div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-4 bg-success text-white text-center rounded shadow">Serviço 2</div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-4 mb-4">
+        <div class="p-4 bg-warning text-white text-center rounded shadow">Serviço 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards de Apresentação -->
+  <section class="container mt-5">
+    <h2 class="text-center mb-4">Quem Somos</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow rounded">
+          <img src="img/team.jpg" class="card-img-top" alt="Time">
+          <div class="card-body">
+            <h5 class="card-title">João da Silva</h5>
+            <p class="card-text">Especialista em soluções web com mais de 10 anos de experiência.</p>
+            <a href="#" class="btn btn-primary">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Fale Conosco</h2>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Nome:</label>
+        <input type="text" class="form-control" placeholder="Seu nome">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input type="email" class="form-control" placeholder="Seu email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mensagem:</label>
+        <textarea class="form-control" rows="4" placeholder="Sua mensagem"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 MinhaEmpresa. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

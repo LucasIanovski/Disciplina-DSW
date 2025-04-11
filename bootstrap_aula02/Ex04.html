@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap adicona o CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Formulário de Contato</h2>
+
+    <form>
+      <!-- Caixa de Nome -->
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label> <!-- A tag <label> do HTML é um elemento que identifica e rotula os campos de formulários, como caixas de seleção, botões de opção e campos de texto -->
+        <input type="text" class="form-control is-valid" id="nome" placeholder="Digite seu nome">
+        <div class="valid-feedback">Tudo certo!</div>
+      </div>
+
+      <!-- Caixa de Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control is-invalid" id="email" placeholder="Digite seu email">
+        <div class="invalid-feedback">Email inválido!</div>
+      </div>
+
+      <!-- Caixa de Mensagem -->
+      <div class="mb-3">
+        <label for="mensagem" class="form-label">Mensagem:</label>
+        <textarea class="form-control" id="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
+      </div>
+
+      <!-- Botão -->
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS (Era para o botão funcionar!) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
