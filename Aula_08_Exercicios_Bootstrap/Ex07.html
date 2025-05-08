@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page - ANONYMOUS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Anonymous_emblem.svg/800px-Anonymous_emblem.svg.png" alt="Logo" width="65" height="65">
+      </a>
+      <a class="navbar-brand" href="#">ANONYMOUS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Seção de Banner -->
+  <div class="container mt-5 text-center">
+    <h1 class="display-4">Bem-vindo à ANONYMOUS</h1>
+    <p class="lead">Transformando ideias em soluções digitais com segurança e inovação.</p>
+  </div>
+
+  <!-- Grid de Serviços -->
+  <section id="servicos" class="container mt-5">
+    <div class="row text-center">
+      <div class="col-12 col-md-6 col-lg-4 p-3 bg-primary text-white rounded shadow">
+        Desenvolvimento Web
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 p-3 bg-success text-white rounded shadow">
+        Design Responsivo
+      </div>
+      <div class="col-12 col-md-12 col-lg-4 p-3 bg-warning text-white rounded shadow">
+        Segurança da Informação
+      </div>
+    </div>
+  </section>
+
+  <!-- Botões de ação -->
+  <div class="container text-center mt-5">
+    <h2>Explore Nossos Recursos</h2>
+    <button class="btn btn-primary m-2">Soluções</button>
+    <button class="btn btn-secondary m-2">Equipe</button>
+    <button class="btn btn-success m-2">Contato</button>
+    <button class="btn btn-warning m-2"><i class="fas fa-info-circle"></i> Saiba Mais</button>
+  </div>
+
+  <!-- Card de Apresentação -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow rounded">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQHXg_tTblX0pA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1674519834091?e=1749686400&v=beta&t=mYBbgHruv6kXdjPZVhZh4sBg7CarCOAuKjlTO5iUPeg" class="card-img-top" alt="Lucas Ianovski">
+          <div class="card-body text-center">
+            <h5 class="card-title">LUCAS IANOVSKI</h5>
+            <p class="card-text">Design de Interiores em transição para Programação | Aprendendo Desenvolvimento Web.</p>
+            <a href="https://www.linkedin.com/in/lucasianovski/" class="btn btn-primary">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulário de Contato -->
+  <section id="contato" class="container mt-5 mb-5">
+    <h2 class="mb-4">Formulário de Contato</h2>
+    <form>
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input type="text" class="form-control is-valid" id="nome" placeholder="Digite seu nome">
+        <div class="valid-feedback">Tudo certo!</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control is-invalid" id="email" placeholder="Digite seu email">
+        <div class="invalid-feedback">Email inválido!</div>
+      </div>
+      <div class="mb-3">
+        <label for="mensagem" class="form-label">Mensagem:</label>
+        <textarea class="form-control" id="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-dark text-white text-center py-3">
+    &copy; 2025 ANONYMOUS. Todos os direitos reservados.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
