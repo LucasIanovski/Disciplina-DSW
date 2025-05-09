@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador até N</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px 50px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      white-space: pre-wrap;
+      text-align: left;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Contador até N</h1>
+  <input type="number" id="limite" placeholder="Digite um número (ou deixe em branco para 100)" />
+  <br>
+  <button onclick="contar()">Contar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function contar() {
+      const input = document.getElementById("limite").value;
+      const limite = input ? parseInt(input) : 100;
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(limite) || limite < 1) {
+        resultado.textContent = "Digite um número válido maior que 0.";
+        return;
+      }
+
+      let contagem = "";
+      for (let i = 1; i <= limite; i++) {
+        contagem += i + (i < limite ? ", " : "");
+      }
+
+      resultado.textContent = contagem;
+    }
+  </script>
+
+</body>
+</html>

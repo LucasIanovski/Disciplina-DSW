@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Média</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calcular Média de 3 Notas</h1>
+  <input type="text" id="nota1" placeholder="Nota 1" step="0.01" />
+  <input type="text" id="nota2" placeholder="Nota 2" step="0.01" />
+  <input type="text" id="nota3" placeholder="Nota 3" step="0.01" />
+  <br>
+  <button onclick="calcularMedia()">Calcular Média</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcularMedia() {
+      const n1 = parseFloat(document.getElementById("nota1").value);
+      const n2 = parseFloat(document.getElementById("nota2").value);
+      const n3 = parseFloat(document.getElementById("nota3").value);
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+        resultado.textContent = "Por favor, preencha todas as notas corretamente.";
+        return;
+      }
+
+      const media = (n1 + n2 + n3) / 3;
+      const status = media >= 6 ? "Aprovado" : "Reprovado";
+
+      resultado.textContent = `Média: ${media.toFixed(2)} - ${status}`;
+    }
+  </script>
+
+</body>
+</html>

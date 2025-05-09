@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador Par ou Ímpar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Verificar se é Par ou Ímpar</h1>
+  <input type="text" id="numero" placeholder="Digite um número" />
+  <button onclick="verificar()">Verificar</button>
+
+  <div id="resultado"></div> <!-- div sem conteudo, conteudo ser´s inserido pelo usuario -->
+
+  <script>
+    function verificar() {  
+      const num = parseInt(document.getElementById("numero").value); // parseint so serve para numeros inteiros
+      const resultado = document.getElementById("resultado");   // parsfloat aceita numeros com virgula
+
+      if (isNaN(num)) { // si não for numero exiba
+        resultado.textContent = "Por favor, digite um número válido."; // ele  esta buscando na div rusultado 
+        return;
+      }
+
+      if (num % 2 === 0) { // === serve para comparar a igualde de conteudo e tipo
+        resultado.textContent = `O número ${num} é PAR.`;// si o valor for valido e si for par exiba, num é uma constante por que na linha 33 foi declarado como constante 
+      } else {   // ` ${num} ` crazi e os simbolos serve para contatenação ou seja ta pegando texto + valor de numero + texto po ser usado assim tbm: ' o num' + num + 'é par.'
+        resultado.textContent = `O número ${num} é ÍMPAR.`; // e si nãp for par exiba
+      }
+    }
+  </script>
+
+</body>
+</html>
+

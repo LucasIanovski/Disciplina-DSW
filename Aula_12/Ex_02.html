@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabuada de um Número</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gerar Tabuada</h1>
+  <input type="number" id="numero" placeholder="Digite um número" />
+  <br>
+  <button onclick="gerarTabuada()">Mostrar Tabuada</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function gerarTabuada() {
+      const num = parseInt(document.getElementById("numero").value);
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(num)) {
+        resultado.textContent = "Por favor, digite um número válido.";
+        return;
+      }
+
+      let tabuada = `Tabuada do ${num}:\n\n`;
+      for (let i = 1; i <= 10; i++) {
+        tabuada += `${num} x ${i} = ${num * i}\n`;
+      }
+
+      resultado.textContent = tabuada;
+    }
+  </script>
+
+</body>
+</html>
