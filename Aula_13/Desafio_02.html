@@ -1,0 +1,185 @@
+<!-- Declara que este é um documento HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do conteúdo HTML -->
+<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
+
+<head> <!-- Cabeçalho: título e estilos -->
+
+  <!-- Define caracteres UTF-8 para aceitar acentos -->
+  <meta charset="UTF-8">
+
+  <!-- Título que aparece na aba do navegador -->
+  <title>Verificador de Senha Segura</title>
+
+  <!-- Estilos CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;  /* Fonte usada */
+      display: flex;                   /* Usa flexbox para centralizar */
+      justify-content: center;         /* Centraliza horizontalmente */
+      align-items: center;             /* Centraliza verticalmente */
+      height: 100vh;                   /* Altura total da tela */
+      background-color: #f0f0f0;       /* Fundo cinza claro */
+    }
+
+    .container {
+      background: white;              /* Fundo branco do formulário */
+      padding: 30px;                  /* Espaço interno */
+      border-radius: 10px;            /* Bordas arredondadas */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra suave */
+      width: 350px;                  /* Largura fixa */
+      text-align: center;             /* Centraliza o texto */
+    }
+
+    input {
+      width: 100%;                   /* Campo ocupa toda a largura */
+      padding: 10px;                 /* Espaço interno */
+      font-size: 16px;               /* Tamanho da fonte */
+      margin-bottom: 15px;           /* Espaço abaixo do campo */
+      box-sizing: border-box;        /* Para padding não aumentar largura */
+    }
+
+    button {
+      padding: 10px 20px;            /* Espaço interno do botão */
+      font-size: 16px;               /* Tamanho da fonte */
+      cursor: pointer;               /* Cursor de mãozinha */
+      background-color: #007BFF;     /* Cor azul do botão */
+      color: white;                  /* Texto branco */
+      border: none;                  /* Sem borda */
+      border-radius: 5px;            /* Bordas arredondadas */
+      width: 100%;                  /* Largura total */
+    }
+
+    #resultado {
+      margin-top: 20px;              /* Espaço acima do resultado */
+      text-align: left;              /* Alinha o texto à esquerda */
+      font-size: 16px;              /* Tamanho do texto */
+      padding: 15px;                /* Espaço interno */
+      border-radius: 5px;           /* Bordas arredondadas */
+      font-weight: bold;            /* Negrito */
+    }
+
+    /* Cores para os estados de segurança */
+    .forte {
+      background-color: #d4edda;    /* Verde claro */
+      color: #155724;               /* Verde escuro */
+    }
+
+    .quase {
+      background-color: #fff3cd;    /* Amarelo claro */
+      color: #856404;               /* Amarelo escuro */
+    }
+
+    .fraca {
+      background-color: #f8d7da;    /* Vermelho claro */
+      color: #721c24;               /* Vermelho escuro */
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .ok {
+      color: green;
+    }
+
+    .erro {
+      color: red;
+    }
+  </style>
+</head>
+
+<body> <!-- Início do conteúdo visível -->
+
+  <!-- Caixa central -->
+  <div class="container">
+    <h1>Verificador de Senha Segura</h1>
+
+    <!-- Campo para digitar a senha -->
+    <input type="password" id="senha" placeholder="Digite sua senha" />
+
+    <!-- Botão para verificar a senha -->
+    <button onclick="verificarSenha()">Verificar Segurança</button>
+
+    <!-- Área onde o resultado será exibido -->
+    <div id="resultado"></div>
+  </div>
+
+  <!-- Código JavaScript -->
+  <script>
+    // Função que verifica a senha ao clicar no botão
+    function verificarSenha() {
+      // Pega o valor da senha digitada
+      const senha = document.getElementById("senha").value;
+
+      // Pega o elemento para mostrar o resultado
+      const resultado = document.getElementById("resultado");
+
+      // Zera o conteúdo do resultado para novo feedback
+      resultado.innerHTML = "";
+
+      // Critérios de segurança usando expressões regulares
+      const criterios = {
+        comprimento: senha.length >= 8,
+        maiuscula: /[A-Z]/.test(senha),
+        minuscula: /[a-z]/.test(senha),
+        numero: /[0-9]/.test(senha),
+        especial: /[!@#$%^&*()]/.test(senha)
+      };
+
+      // Conta quantos critérios foram cumpridos
+      const criteriosCumpridos = Object.values(criterios).filter(Boolean).length;
+
+      // Define a classe e mensagem de acordo com critérios cumpridos
+      if (criteriosCumpridos === 5) {
+        resultado.className = "forte";
+        resultado.innerHTML = "<p>Sua senha é <strong>forte</strong>.</p>";
+      } else if (criteriosCumpridos === 4) {
+        resultado.className = "quase";
+        resultado.innerHTML = "<p>Sua senha é <strong>quase forte</strong>.</p>";
+      } else {
+        resultado.className = "fraca";
+        resultado.innerHTML = "<p>Sua senha é <strong>fraca</strong>.</p>";
+      }
+
+      // Mostra quais critérios foram cumpridos ou não
+      resultado.innerHTML += "<ul>";
+
+      // Para cada critério mostramos se foi cumprido
+      for (const [criterio, ok] of Object.entries(criterios)) {
+        let descricao = "";
+
+        // Descrição amigável de cada critério
+        switch (criterio) {
+          case "comprimento":
+            descricao = "Mínimo 8 caracteres";
+            break;
+          case "maiuscula":
+            descricao = "Letra maiúscula";
+            break;
+          case "minuscula":
+            descricao = "Letra minúscula";
+            break;
+          case "numero":
+            descricao = "Número";
+            break;
+          case "especial":
+            descricao = "Caractere especial (!@#$%^&*())";
+            break;
+        }
+
+        // Adiciona um item na lista, verde se ok, vermelho se não
+        resultado.innerHTML += `<li class="${ok ? "ok" : "erro"}">${descricao} ${ok ? "✅" : "❌"}</li>`;
+      }
+
+      resultado.innerHTML += "</ul>";
+    }
+  </script>
+</body>
+</html>
