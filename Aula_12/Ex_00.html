@@ -1,51 +1,104 @@
+<!-- Esta é a primeira linha do código: diz ao navegador que este é um documento HTML -->
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+
+<!-- Aqui começa o código HTML propriamente dito -->
+<html lang="pt-BR"> <!-- Define que o idioma da página é Português do Brasil -->
+
+<head> <!-- A tag <head> contém informações sobre a página, como título e estilo -->
+
+  <!-- Define o conjunto de caracteres para a página, permitindo acentos e cedilhas -->
   <meta charset="UTF-8">
+
+  <!-- Define o título da aba do navegador -->
   <title>Verificador Par ou Ímpar</title>
+
+  <!-- Aqui começa o estilo da página, ou seja, a aparência dos elementos -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      font-family: Arial, sans-serif; /* Define a fonte usada no corpo da página */
+      text-align: center;            /* Centraliza o conteúdo na tela */
+      margin-top: 50px;              /* Cria um espaço do topo até o conteúdo */
     }
+
     input, button {
-      padding: 10px;
-      font-size: 16px;
+      padding: 10px;     /* Adiciona espaçamento dentro dos campos e botões */
+      font-size: 16px;   /* Define o tamanho da letra para os campos e botões */
     }
+
     #resultado {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 20px;        /* Tamanho da letra do resultado */
+      font-weight: bold;      /* Deixa o texto em negrito */
     }
   </style>
 </head>
+
+<!-- Aqui começa o conteúdo que será exibido no corpo da página -->
 <body>
 
+  <!-- Título principal que aparece na página -->
   <h1>Verificar se é Par ou Ímpar</h1>
+
+  <!-- Campo de texto para o usuário digitar um número -->
   <input type="text" id="numero" placeholder="Digite um número" />
+  <!-- 
+    type="text" → Campo onde se digita texto.
+    id="numero" → Um nome único para identificarmos esse campo no JavaScript.
+    placeholder → Texto que aparece dentro do campo antes do usuário digitar.
+  -->
+
+  <!-- Botão que o usuário clica para verificar o número -->
   <button onclick="verificar()">Verificar</button>
+  <!-- 
+    onclick="verificar()" → Quando o botão for clicado, a função "verificar" será executada.
+  -->
 
-  <div id="resultado"></div> <!-- div sem conteudo, conteudo ser´s inserido pelo usuario -->
+  <!-- Aqui será exibido o resultado (par ou ímpar) -->
+  <div id="resultado"></div>
+  <!-- id="resultado" → Um local onde vamos mostrar a resposta com JavaScript -->
 
+  <!-- Agora começa o código JavaScript -->
   <script>
-    function verificar() {  
-      const num = parseInt(document.getElementById("numero").value); // parseint so serve para numeros inteiros
-      const resultado = document.getElementById("resultado");   // parsfloat aceita numeros com virgula
+    // Esta é a função chamada quando o botão é clicado
+    function verificar() {
 
-      if (isNaN(num)) { // si não for numero exiba
-        resultado.textContent = "Por favor, digite um número válido."; // ele  esta buscando na div rusultado 
-        return;
-      }
+      // Pega o valor digitado no campo de texto, transforma em número inteiro
+      const num = parseInt(document.getElementById("numero").value);
+      /*
+        document → representa toda a página
+        getElementById("numero") → pega o campo com o id "numero"
+        .value → pega o que foi digitado pelo usuário
+        parseInt(...) → transforma o texto digitado em número inteiro
+        const num → cria uma variável chamada num que vai guardar esse número
+      */
 
-      if (num % 2 === 0) { // === serve para comparar a igualde de conteudo e tipo
-        resultado.textContent = `O número ${num} é PAR.`;// si o valor for valido e si for par exiba, num é uma constante por que na linha 33 foi declarado como constante 
-      } else {   // ` ${num} ` crazi e os simbolos serve para contatenação ou seja ta pegando texto + valor de numero + texto po ser usado assim tbm: ' o num' + num + 'é par.'
-        resultado.textContent = `O número ${num} é ÍMPAR.`; // e si nãp for par exiba
+      // Pega o local onde vamos mostrar a resposta (div com id="resultado")
+      const resultado = document.getElementById("resultado");
+
+      // Verifica se o que foi digitado é realmente um número
+      if (isNaN(num)) {
+        resultado.textContent = "Por favor, digite um número válido.";
+        return; // Para aqui se não for número
       }
+      /*
+        isNaN(num) → verifica se 'num' NÃO é um número (NaN = Not a Number)
+        Se for verdade, mostramos uma mensagem de erro
+        textContent → muda o texto que aparece na página
+      */
+
+      // Se o número for divisível por 2 (sem resto), ele é PAR
+      if (num % 2 === 0) {
+        resultado.textContent = `O número ${num} é PAR.`;
+      } else {
+        resultado.textContent = `O número ${num} é ÍMPAR.`;
+      }
+      /*
+        num % 2 → faz a divisão do número por 2 e pega o resto
+        === 0 → verifica se o resto é igual a 0 (ou seja, número par)
+        else → se não for par, então é ímpar
+        `O número ${num}...` → mensagem que aparece na tela com o número digitado
+      */
     }
   </script>
-
 </body>
 </html>
-

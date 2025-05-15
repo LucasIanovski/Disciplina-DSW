@@ -1,53 +1,105 @@
+<!-- Indica que este é um documento HTML5 -->
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+
+<!-- Início do código HTML -->
+<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
+
+<head> <!-- Cabeçalho da página (título, estilo, etc.) -->
+
+  <!-- Define o conjunto de caracteres como UTF-8 (permite acentos) -->
   <meta charset="UTF-8">
-  <title>Encontrar o Maior Número</title>
+
+  <!-- Define o título da aba do navegador -->
+  <title>Verificar Número Primo</title>
+
+  <!-- Estilo visual da página -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      font-family: Arial, sans-serif;  /* Tipo de letra usada */
+      text-align: center;              /* Centraliza os conteúdos da página */
+      margin-top: 50px;                /* Espaço do topo até o conteúdo */
     }
+
     input, button {
-      padding: 10px;
-      font-size: 16px;
+      padding: 10px;       /* Espaço dentro dos campos e botões */
+      font-size: 16px;     /* Tamanho do texto */
+      margin: 5px;         /* Espaço entre os elementos */
     }
+
     #resultado {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 20px;        /* Tamanho da letra */
+      font-weight: bold;      /* Texto em negrito */
     }
   </style>
 </head>
-<body>
 
-  <h1>Encontrar o Maior Número</h1>
-  <input type="text" id="listaNumeros" placeholder="Digite os números separados por vírgula" />
-  <button onclick="encontrarMaior()">Encontrar Maior</button>
+<body> <!-- Início do conteúdo visível da página -->
 
+  <!-- Título principal -->
+  <h1>Verificar se um Número é Primo</h1>
+
+  <!-- Campo para digitar o número -->
+  <input type="number" id="numero" placeholder="Digite um número" />
+  <!-- 
+    type="number" → só aceita números
+    id="numero" → nome usado no JavaScript para pegar esse valor
+    placeholder → dica que aparece dentro do campo
+  -->
+
+  <!-- Botão que executa a verificação -->
+  <button onclick="verificarPrimo()">Verificar</button>
+  <!-- onclick → chama a função verificarPrimo() ao clicar -->
+
+  <!-- Área onde será exibido o resultado -->
   <div id="resultado"></div>
 
+  <!-- Começo do código JavaScript -->
   <script>
-    function encontrarMaior() {
-      const lista = document.getElementById("listaNumeros").value; // Pega a lista de números do usuário
+    // Função executada quando o botão for clicado
+    function verificarPrimo() {
+      // Pegamos o número digitado e transformamos em inteiro
+      const num = parseInt(document.getElementById("numero").value);
+
+      // Pegamos a área onde o resultado será mostrado
       const resultado = document.getElementById("resultado");
 
-      // Converte a string de números separados por vírgula em um array de números
-      const listaNumeros = lista.split(',').map(num => parseFloat(num.trim()));
+      // Verifica se o número é válido
+      if (isNaN(num) || num < 1) {
+        resultado.textContent = "Por favor, digite um número inteiro positivo.";
+        return; // Encerra a função se for inválido
+      }
 
-      // Verifica se a lista está vazia ou contém valores inválidos
-      if (listaNumeros.length === 0 || listaNumeros.some(isNaN)) {
-        resultado.textContent = "Por favor, insira uma lista de números válidos.";
+      // Número 1 não é primo
+      if (num === 1) {
+        resultado.textContent = "O número 1 não é primo.";
         return;
       }
 
-      // Encontrar o maior número
-      const maiorNumero = Math.max(...listaNumeros);
+      // Vamos verificar se o número tem divisores além de 1 e ele mesmo
+      let ehPrimo = true; // Começamos assumindo que o número é primo
 
-      resultado.textContent = `O maior número da lista é: ${maiorNumero}`;
+      // Começamos a checar se há algum divisor de 2 até num-1
+      for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+          ehPrimo = false; // Encontramos um divisor → não é primo
+          break; // Não precisamos verificar mais
+        }
+      }
+
+      // Mostramos o resultado na tela
+      if (ehPrimo) {
+        resultado.textContent = `O número ${num} é PRIMO.`;
+      } else {
+        resultado.textContent = `O número ${num} NÃO é primo.`;
+      }
+
+      /*
+        % → operador de resto da divisão
+        num % i === 0 → significa que num é divisível por i (ou seja, tem divisor)
+        if (ehPrimo) → se continuou sendo primo até o final, mostramos isso
+      */
     }
   </script>
-
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!-- Declara que o documento está escrito em HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do conteúdo HTML -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+
+<head> <!-- Cabeçalho invisível da página (título, estilo, etc.) -->
+
+  <!-- Define o conjunto de caracteres como UTF-8, que aceita acentos -->
+  <meta charset="UTF-8">
+
+  <!-- Título da aba do navegador -->
+  <title>Inverter Palavra</title>
+
+  <!-- Estilo da página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;  /* Define o tipo da letra */
+      text-align: center;              /* Centraliza o conteúdo */
+      margin-top: 50px;                /* Espaço do topo até o conteúdo */
+    }
+
+    input, button {
+      padding: 10px;       /* Espaçamento interno nos campos e botões */
+      font-size: 16px;     /* Tamanho do texto */
+      margin: 5px;         /* Espaçamento entre os elementos */
+    }
+
+    #resultado {
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 20px;        /* Tamanho da letra do resultado */
+      font-weight: bold;      /* Texto em negrito */
+    }
+  </style>
+</head>
+
+<body> <!-- Início do conteúdo visível para o usuário -->
+
+  <!-- Título principal da página -->
+  <h1>Inverter Palavra</h1>
+
+  <!-- Campo onde o usuário digita uma palavra -->
+  <input type="text" id="palavra" placeholder="Digite uma palavra" />
+  <!-- 
+    type="text" → campo para texto normal
+    id="palavra" → nome usado no JavaScript para pegar esse campo
+    placeholder → texto que aparece dentro do campo como dica
+  -->
+
+  <!-- Botão que inverte a palavra ao ser clicado -->
+  <button onclick="inverter()">Inverter</button>
+  <!-- onclick → chama a função inverter() quando o botão é clicado -->
+
+  <!-- Área onde será exibida a palavra invertida -->
+  <div id="resultado"></div>
+
+  <!-- Início do código JavaScript -->
+  <script>
+    // Função que será executada ao clicar no botão
+    function inverter() {
+      // Pegamos a palavra digitada pelo usuário
+      const palavra = document.getElementById("palavra").value;
+
+      // Verifica se a pessoa digitou algo
+      if (palavra.trim() === "") {
+        alert("Por favor, digite uma palavra.");
+        return; // Encerra a função se estiver vazio
+      }
+
+      /*
+        .split("") → divide a palavra em letras (transforma em array)
+        .reverse() → inverte a ordem das letras
+        .join("") → junta as letras de novo em uma palavra só
+      */
+      const invertida = palavra.split("").reverse().join("");
+
+      // Mostra o resultado na tela
+      document.getElementById("resultado").textContent = `Palavra invertida: ${invertida}`;
+    }
+  </script>
+</body>
+</html>

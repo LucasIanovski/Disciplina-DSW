@@ -1,54 +1,100 @@
+<!-- Informa ao navegador que este é um documento HTML5 -->
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+
+<!-- Início do código HTML -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+
+<head> <!-- Cabeçalho da página, onde ficam o título e os estilos -->
+
+  <!-- Define que vamos usar caracteres com acento e cedilha -->
   <meta charset="UTF-8">
-  <title>Tabuada de um Número</title>
+
+  <!-- Define o texto que aparece na aba do navegador -->
+  <title>Tabuada</title>
+
+  <!-- Estilo visual da página -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      font-family: Arial, sans-serif;  /* Tipo de letra usada */
+      text-align: center;              /* Centraliza o conteúdo na página */
+      margin-top: 50px;                /* Espaço entre o topo e o conteúdo */
     }
+
     input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 5px;
+      padding: 10px;        /* Espaço interno dentro dos campos e botões */
+      font-size: 16px;      /* Tamanho da letra */
+      margin: 5px;          /* Espaço externo entre os elementos */
     }
+
     #resultado {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      white-space: pre-line;
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 18px;        /* Tamanho do texto da tabuada */
+      font-weight: bold;      /* Deixa a letra em negrito */
+      white-space: pre-line;  /* Permite que o \n (quebra de linha) funcione corretamente */
     }
   </style>
 </head>
-<body>
 
-  <h1>Gerar Tabuada</h1>
+<body> <!-- Aqui começa o conteúdo visível da página -->
+
+  <!-- Título principal da página -->
+  <h1>Tabuada de um Número</h1>
+
+  <!-- Campo onde o usuário digita o número -->
   <input type="number" id="numero" placeholder="Digite um número" />
-  <br>
-  <button onclick="gerarTabuada()">Mostrar Tabuada</button>
+  <!-- 
+    type="number" → só aceita números
+    id="numero" → nome usado para acessar esse campo no JavaScript
+    placeholder → texto que aparece dentro do campo como dica
+  -->
 
+  <!-- Botão que executa o cálculo da tabuada -->
+  <button onclick="mostrarTabuada()">Mostrar Tabuada</button>
+  <!-- onclick → chama a função mostrarTabuada() quando clicado -->
+
+  <!-- Área onde a tabuada será exibida -->
   <div id="resultado"></div>
 
+  <!-- Código JavaScript começa aqui -->
   <script>
-    function gerarTabuada() {
+    // Função chamada quando o botão é clicado
+    function mostrarTabuada() {
+
+      // Pegamos o número digitado e transformamos em número inteiro
       const num = parseInt(document.getElementById("numero").value);
+
+      // Pegamos o lugar onde vamos mostrar a resposta
       const resultado = document.getElementById("resultado");
 
+      // Verificamos se o que foi digitado é realmente um número
       if (isNaN(num)) {
         resultado.textContent = "Por favor, digite um número válido.";
-        return;
+        return; // Encerra a função se o valor for inválido
       }
 
-      let tabuada = `Tabuada do ${num}:\n\n`;
+      // Criamos uma variável que guardará a tabuada
+      let tabuada = "";
+
+      // Usamos um laço de repetição para multiplicar de 1 até 10
       for (let i = 1; i <= 10; i++) {
         tabuada += `${num} x ${i} = ${num * i}\n`;
       }
 
+      /*
+        for → é um laço que repete algo várias vezes
+        let i = 1 → começamos com i valendo 1
+        i <= 10 → o laço vai até o 10
+        i++ → a cada volta, aumenta 1 no i (ex: 1, 2, 3... até 10)
+
+        ${num} → número digitado pelo usuário
+        ${i} → valor atual da repetição (de 1 até 10)
+        ${num * i} → resultado da multiplicação
+        \n → pula para a próxima linha
+      */
+
+      // Mostramos a tabuada na tela
       resultado.textContent = tabuada;
     }
   </script>
-
 </body>
 </html>

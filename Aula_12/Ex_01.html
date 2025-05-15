@@ -1,55 +1,107 @@
+<!-- Esta linha informa ao navegador que o documento é um arquivo HTML5 -->
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+
+<!-- A tag <html> indica o início do conteúdo HTML da página -->
+<html lang="pt-BR"> <!-- lang="pt-BR" define o idioma como português do Brasil -->
+
+<head> <!-- A tag <head> guarda informações invisíveis da página, como título e estilo -->
+
+  <!-- Define que a página usa o conjunto de caracteres UTF-8 (que aceita acentos) -->
   <meta charset="UTF-8">
-  <title>Calculadora de Média</title>
+
+  <!-- Define o nome que aparece na aba do navegador -->
+  <title>Cálculo de Média</title>
+
+  <!-- Aqui dentro colocamos o estilo da página, para deixá-la bonita e organizada -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      font-family: Arial, sans-serif;  /* Define a fonte usada na página */
+      text-align: center;              /* Centraliza o conteúdo na tela */
+      margin-top: 50px;                /* Espaço de 50px do topo da página até o conteúdo */
     }
+
     input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 5px;
+      padding: 10px;      /* Adiciona espaço dentro dos campos e botões */
+      font-size: 16px;    /* Tamanho da letra */
+      margin: 5px;        /* Espaço ao redor de cada campo/botão */
     }
+
     #resultado {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 20px;        /* Tamanho da letra do resultado */
+      font-weight: bold;      /* Texto em negrito */
     }
   </style>
 </head>
-<body>
 
+<body> <!-- Aqui começa o conteúdo que será exibido ao usuário -->
+
+  <!-- Título principal da página -->
   <h1>Calcular Média de 3 Notas</h1>
-  <input type="text" id="nota1" placeholder="Nota 1" step="0.01" />
-  <input type="text" id="nota2" placeholder="Nota 2" step="0.01" />
-  <input type="text" id="nota3" placeholder="Nota 3" step="0.01" />
-  <br>
-  <button onclick="calcularMedia()">Calcular Média</button>
 
+  <!-- Campo de texto para digitar a primeira nota -->
+  <input type="number" id="nota1" placeholder="Nota 1" />
+  <!-- 
+    type="number" → só aceita números
+    id="nota1" → nome usado para pegar este campo no JavaScript
+    placeholder → texto que aparece dentro do campo antes de digitar
+  -->
+
+  <!-- Campo de texto para digitar a segunda nota -->
+  <input type="number" id="nota2" placeholder="Nota 2" />
+
+  <!-- Campo de texto para digitar a terceira nota -->
+  <input type="number" id="nota3" placeholder="Nota 3" />
+
+  <!-- Botão que calcula a média quando clicado -->
+  <button onclick="calcularMedia()">Calcular Média</button>
+  <!-- onclick → chama a função calcularMedia() ao clicar no botão -->
+
+  <!-- Área onde o resultado será exibido -->
   <div id="resultado"></div>
 
+  <!-- Aqui começa o código JavaScript -->
   <script>
+    // Função que será executada quando o botão for clicado
     function calcularMedia() {
+
+      // Pega os valores digitados e transforma em números com parseFloat (permite decimais)
       const n1 = parseFloat(document.getElementById("nota1").value);
       const n2 = parseFloat(document.getElementById("nota2").value);
       const n3 = parseFloat(document.getElementById("nota3").value);
+
+      /*
+        document → representa toda a página
+        getElementById("nota1") → pega o campo com id "nota1"
+        .value → pega o valor digitado
+        parseFloat(...) → converte o valor de texto para número com casas decimais
+      */
+
+      // Pega o local onde vamos mostrar a resposta
       const resultado = document.getElementById("resultado");
 
+      // Verifica se todos os campos foram preenchidos com números
       if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
-        resultado.textContent = "Por favor, preencha todas as notas corretamente.";
-        return;
+        resultado.textContent = "Por favor, digite todas as 3 notas.";
+        return; // Sai da função se alguma nota for inválida
       }
 
+      // Calcula a média das três notas
       const media = (n1 + n2 + n3) / 3;
-      const status = media >= 6 ? "Aprovado" : "Reprovado";
 
-      resultado.textContent = `Média: ${media.toFixed(2)} - ${status}`;
+      // Verifica se a média é maior ou igual a 6 (aprovado)
+      if (media >= 6) {
+        resultado.textContent = `Média: ${media.toFixed(2)} - Aluno Aprovado!`;
+      } else {
+        resultado.textContent = `Média: ${media.toFixed(2)} - Aluno Reprovado.`;
+      }
+
+      /*
+        media.toFixed(2) → arredonda a média para 2 casas decimais
+        ${...} → insere o valor dentro da frase
+        textContent → mostra o texto na tela
+      */
     }
   </script>
-
 </body>
 </html>

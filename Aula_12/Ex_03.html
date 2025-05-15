@@ -1,62 +1,96 @@
+<!-- Esta linha informa ao navegador que o documento está em HTML5 -->
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+
+<!-- Início do conteúdo HTML -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+
+<head> <!-- Cabeçalho invisível da página (onde ficam título e estilos) -->
+
+  <!-- Define o padrão de caracteres como UTF-8 (suporta acentos e ç) -->
   <meta charset="UTF-8">
-  <title>Contador até N</title>
+
+  <!-- Título que aparece na aba do navegador -->
+  <title>Soma até 0</title>
+
+  <!-- Estilo visual da página -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      font-family: Arial, sans-serif; /* Define a fonte usada */
+      text-align: center;             /* Centraliza o conteúdo */
+      margin-top: 50px;               /* Espaço do topo até o conteúdo */
     }
+
     input, button {
-      padding: 10px 50px;
-      font-size: 16px;
-      margin: 5px;
+      padding: 10px;      /* Espaço interno dos campos e botões */
+      font-size: 16px;    /* Tamanho da letra */
+      margin: 5px;        /* Espaço entre os elementos */
     }
+
     #resultado {
-      margin-top: 20px;
-      font-size: 18px;
-      white-space: pre-wrap;
-      text-align: left;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-      max-height: 300px;
-      overflow-y: auto;
-      border: 1px solid #ccc;
-      padding: 10px;
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 20px;        /* Tamanho da letra do resultado */
+      font-weight: bold;      /* Texto em negrito */
     }
   </style>
 </head>
-<body>
 
-  <h1>Contador até N</h1>
-  <input type="number" id="limite" placeholder="Digite um número (ou deixe em branco para 100)" />
-  <br>
-  <button onclick="contar()">Contar</button>
+<body> <!-- Início do conteúdo visível da página -->
 
+  <!-- Título principal na página -->
+  <h1>Somar até digitar 0</h1>
+
+  <!-- Campo onde o usuário digita um número -->
+  <input type="number" id="numero" placeholder="Digite um número" />
+
+  <!-- Botão para somar o número atual -->
+  <button onclick="somar()">Adicionar</button>
+
+  <!-- Botão para finalizar e mostrar o total -->
+  <button onclick="finalizar()">Finalizar Soma</button>
+
+  <!-- Área onde o resultado (soma final) será mostrado -->
   <div id="resultado"></div>
 
+  <!-- Começo do código JavaScript -->
   <script>
-    function contar() {
-      const input = document.getElementById("limite").value;
-      const limite = input ? parseInt(input) : 100;
-      const resultado = document.getElementById("resultado");
+    // Criamos uma variável fora da função para guardar a soma total
+    let total = 0;
 
-      if (isNaN(limite) || limite < 1) {
-        resultado.textContent = "Digite um número válido maior que 0.";
+    // Função chamada quando o botão "Adicionar" for clicado
+    function somar() {
+      // Pega o número digitado e transforma em inteiro
+      const num = parseInt(document.getElementById("numero").value);
+
+      // Verifica se o que foi digitado é um número válido
+      if (isNaN(num)) {
+        alert("Digite um número válido!");
+        return; // Encerra a função se for inválido
+      }
+
+      // Se o número for 0, informamos que deve clicar no botão "Finalizar"
+      if (num === 0) {
+        alert("Digite outros números ou clique em 'Finalizar Soma' para ver o total.");
         return;
       }
 
-      let contagem = "";
-      for (let i = 1; i <= limite; i++) {
-        contagem += i + (i < limite ? ", " : "");
-      }
+      // Adiciona o número digitado ao total acumulado
+      total += num;
 
-      resultado.textContent = contagem;
+      // Limpa o campo de entrada para o próximo número
+      document.getElementById("numero").value = "";
+
+      // Coloca o cursor de volta no campo para facilitar a digitação
+      document.getElementById("numero").focus();
+    }
+
+    // Função chamada quando o botão "Finalizar Soma" for clicado
+    function finalizar() {
+      // Mostra o resultado da soma total na tela
+      document.getElementById("resultado").textContent = `Soma total: ${total}`;
+
+      // Zera o total para começar de novo, se quiser
+      total = 0;
     }
   </script>
-
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!-- Informa ao navegador que este é um documento HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do conteúdo HTML -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+
+<head> <!-- Cabeçalho da página com título e estilo -->
+
+  <!-- Define o conjunto de caracteres como UTF-8 (aceita acentos) -->
+  <meta charset="UTF-8">
+
+  <!-- Define o texto que aparece na aba do navegador -->
+  <title>Contador de Vogais</title>
+
+  <!-- Estilo visual da página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;  /* Define o tipo da letra usada */
+      text-align: center;              /* Centraliza os elementos da página */
+      margin-top: 50px;                /* Espaço do topo até o conteúdo principal */
+    }
+
+    input, button {
+      padding: 10px;       /* Espaço interno dentro dos campos e botões */
+      font-size: 16px;     /* Tamanho da letra */
+      margin: 5px;         /* Espaço entre os elementos */
+      width: 300px;        /* Largura dos campos */
+    }
+
+    #resultado {
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 20px;        /* Tamanho da fonte do resultado */
+      font-weight: bold;      /* Deixa o texto em negrito */
+    }
+  </style>
+</head>
+
+<body> <!-- Início do conteúdo visível da página -->
+
+  <!-- Título principal da página -->
+  <h1>Contador de Vogais</h1>
+
+  <!-- Campo onde o usuário digita uma palavra ou frase -->
+  <input type="text" id="texto" placeholder="Digite uma palavra ou frase" />
+  <!-- 
+    type="text" → campo de texto
+    id="texto" → nome que vamos usar no JavaScript para acessar este campo
+    placeholder → texto que aparece dentro do campo como sugestão
+  -->
+
+  <!-- Botão que executa a contagem ao ser clicado -->
+  <button onclick="contarVogais()">Contar Vogais</button>
+  <!-- onclick → chama a função contarVogais() quando clicado -->
+
+  <!-- Área onde o resultado será exibido -->
+  <div id="resultado"></div>
+
+  <!-- Início do código JavaScript -->
+  <script>
+    // Função chamada ao clicar no botão
+    function contarVogais() {
+      // Pegamos o texto digitado pelo usuário
+      const texto = document.getElementById("texto").value;
+
+      // Pegamos o local onde vamos mostrar o resultado
+      const resultado = document.getElementById("resultado");
+
+      // Verifica se o campo está vazio
+      if (texto.trim() === "") {
+        resultado.textContent = "Por favor, digite uma palavra ou frase.";
+        return; // Encerra a função se estiver vazio
+      }
+
+      // Transformamos todo o texto em minúsculas para facilitar a contagem
+      const textoMinusculo = texto.toLowerCase();
+
+      // Definimos quais são as letras que consideramos vogais
+      const vogais = ["a", "e", "i", "o", "u"];
+
+      // Criamos uma variável para contar quantas vogais encontramos
+      let contador = 0;
+
+      // Laço que percorre cada letra do texto digitado
+      for (let i = 0; i < textoMinusculo.length; i++) {
+        const letra = textoMinusculo[i]; // Pega uma letra de cada vez
+
+        // Verifica se a letra atual é uma vogal
+        if (vogais.includes(letra)) {
+          contador++; // Se for vogal, aumenta o contador
+        }
+      }
+
+      // Exibe o resultado final na tela
+      resultado.textContent = `Quantidade de vogais: ${contador}`;
+    }
+  </script>
+</body>
+</html>

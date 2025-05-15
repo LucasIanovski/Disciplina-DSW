@@ -1,0 +1,103 @@
+<!-- Indica que este é um documento HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do HTML -->
+<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
+
+<head> <!-- Cabeçalho da página: configurações e estilos -->
+
+  <!-- Define o conjunto de caracteres como UTF-8 (aceita acentos) -->
+  <meta charset="UTF-8">
+
+  <!-- Define o título da aba do navegador -->
+  <title>Sequência de Fibonacci</title>
+
+  <!-- Estilos da página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;  /* Tipo de letra */
+      text-align: center;              /* Centraliza os elementos */
+      margin-top: 50px;                /* Espaço do topo */
+    }
+
+    input, button {
+      padding: 10px;       /* Espaço interno dos elementos */
+      font-size: 16px;     /* Tamanho do texto */
+      margin: 5px;         /* Espaço entre os elementos */
+    }
+
+    #resultado {
+      margin-top: 20px;       /* Espaço acima do resultado */
+      font-size: 18px;        /* Tamanho da fonte */
+      font-weight: bold;      /* Texto em negrito */
+    }
+  </style>
+</head>
+
+<body> <!-- Início do conteúdo da página -->
+
+  <!-- Título principal da página -->
+  <h1>Sequência de Fibonacci</h1>
+
+  <!-- Campo para o usuário digitar quantos termos deseja -->
+  <input type="number" id="quantidade" placeholder="Digite a quantidade de termos" />
+  <!-- 
+    type="number" → só aceita números
+    id="quantidade" → nome para acessar esse campo no JavaScript
+    placeholder → texto de exemplo dentro do campo
+  -->
+
+  <!-- Botão que ao ser clicado gera a sequência -->
+  <button onclick="gerarFibonacci()">Gerar Sequência</button>
+  <!-- onclick → chama a função gerarFibonacci() ao clicar -->
+
+  <!-- Área onde a sequência será mostrada -->
+  <div id="resultado"></div>
+
+  <!-- Início do código JavaScript -->
+  <script>
+    // Função executada ao clicar no botão
+    function gerarFibonacci() {
+      // Pega o número digitado e transforma em inteiro
+      const n = parseInt(document.getElementById("quantidade").value);
+
+      // Pega a div onde será mostrado o resultado
+      const resultado = document.getElementById("resultado");
+
+      // Verifica se o número é válido
+      if (isNaN(n) || n <= 0) {
+        resultado.textContent = "Por favor, digite um número inteiro positivo.";
+        return; // Encerra a função se estiver inválido
+      }
+
+      // Criamos um array para guardar os números da sequência
+      let sequencia = [];
+
+      // Caso o usuário queira 1 ou mais termos
+      for (let i = 0; i < n; i++) {
+        if (i === 0) {
+          sequencia.push(0); // Primeiro número da sequência
+        } else if (i === 1) {
+          sequencia.push(1); // Segundo número da sequência
+        } else {
+          // Os próximos números são a soma dos dois anteriores
+          const novoTermo = sequencia[i - 1] + sequencia[i - 2];
+          sequencia.push(novoTermo);
+        }
+      }
+
+      /*
+        sequencia.push(valor) → adiciona um número na lista
+        sequencia[i - 1] → último número gerado
+        sequencia[i - 2] → penúltimo número gerado
+        novoTermo → resultado da soma dos dois anteriores
+      */
+
+      // Mostra a sequência na tela, separada por vírgulas
+      resultado.textContent = `Sequência de Fibonacci com ${n} termos:\n${sequencia.join(", ")}`;
+      
+      // .join(", ") → transforma o array em texto separado por vírgulas
+    }
+  </script>
+</body>
+</html>
