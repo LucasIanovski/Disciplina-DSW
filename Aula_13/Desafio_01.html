@@ -1,0 +1,127 @@
+<!-- Informa ao navegador que este é um documento HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do conteúdo HTML -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+
+<head> <!-- Cabeçalho da página (configurações, título e estilos) -->
+
+  <!-- Define o padrão de caracteres para aceitar acentos e cedilha -->
+  <meta charset="UTF-8">
+
+  <!-- Define o texto que aparece na aba do navegador -->
+  <title>Verificador de Palíndromo</title>
+
+  <!-- Estilos da página (CSS) -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;   /* Tipo da letra usada na página */
+      display: flex;                    /* Ativa o modo flex para centralizar */
+      justify-content: center;          /* Centraliza horizontalmente */
+      align-items: center;              /* Centraliza verticalmente */
+      height: 100vh;                    /* Altura total da tela */
+      background-color: #f0f0f0;        /* Cor de fundo suave */
+    }
+
+    .container {
+      background: white;               /* Fundo branco para o formulário */
+      padding: 30px;                   /* Espaçamento interno */
+      border-radius: 10px;             /* Cantos arredondados */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra suave */
+      text-align: center;              /* Centraliza o texto dentro */
+    }
+
+    input {
+      padding: 10px;       /* Espaço interno do campo */
+      font-size: 16px;     /* Tamanho da fonte */
+      margin-bottom: 10px; /* Espaço abaixo do campo */
+      width: 200px;        /* Largura do campo */
+    }
+
+    button {
+      padding: 10px 20px;            /* Espaçamento interno do botão */
+      font-size: 16px;               /* Tamanho da fonte do botão */
+      cursor: pointer;              /* Muda o cursor para "mãozinha" */
+      background-color: #007BFF;    /* Cor azul do botão */
+      color: white;                 /* Texto branco */
+      border: none;                 /* Sem borda */
+      border-radius: 5px;           /* Borda arredondada */
+    }
+
+    #resultado {
+      margin-top: 20px;             /* Espaço acima do resultado */
+      font-size: 18px;              /* Tamanho do texto do resultado */
+      font-weight: bold;            /* Deixa o texto em negrito */
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .verde {
+      background-color: #d4edda;    /* Fundo verde claro */
+      color: #155724;               /* Texto verde escuro */
+    }
+
+    .vermelho {
+      background-color: #f8d7da;    /* Fundo vermelho claro */
+      color: #721c24;               /* Texto vermelho escuro */
+    }
+  </style>
+</head>
+
+<body> <!-- Início da parte visível da página -->
+
+  <!-- Caixa central com o conteúdo -->
+  <div class="container">
+    <h1>Verificador de Palíndromos</h1>
+
+    <!-- Campo onde o usuário digita o número -->
+    <input type="text" id="numero" placeholder="Digite um número" />
+
+    <!-- Botão que inicia a verificação -->
+    <button onclick="verificarPalindromo()">Verificar</button>
+
+    <!-- Área onde o resultado será mostrado -->
+    <div id="resultado"></div>
+  </div>
+
+  <!-- Início do JavaScript -->
+  <script>
+    // Função chamada ao clicar no botão
+    function verificarPalindromo() {
+      // Pegamos o número digitado
+      const valor = document.getElementById("numero").value.trim();
+
+      // Pegamos o elemento onde o resultado será exibido
+      const resultado = document.getElementById("resultado");
+
+      // Limpa estilos anteriores
+      resultado.className = "";
+
+      // Verifica se o campo está vazio
+      if (valor === "") {
+        resultado.textContent = "Por favor, digite um número.";
+        resultado.classList.add("vermelho");
+        return;
+      }
+
+      // Verifica se é um número inteiro positivo
+      if (!/^\d+$/.test(valor)) {
+        resultado.textContent = "Digite apenas números inteiros positivos.";
+        resultado.classList.add("vermelho");
+        return;
+      }
+
+      // Compara o número com sua versão invertida
+      const invertido = valor.split("").reverse().join("");
+
+      if (valor === invertido) {
+        resultado.textContent = `✅ O número ${valor} é um palíndromo.`;
+        resultado.classList.add("verde");
+      } else {
+        resultado.textContent = `❌ O número ${valor} não é um palíndromo.`;
+        resultado.classList.add("vermelho");
+      }
+    }
+  </script>
+</body>
+</html>
