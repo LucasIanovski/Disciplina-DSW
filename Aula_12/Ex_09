@@ -1,0 +1,117 @@
+<!-- Informa ao navegador que este é um documento HTML5 -->
+<!DOCTYPE html>
+
+<!-- Início do conteúdo HTML -->
+<html lang="pt-BR"> <!-- Define que a linguagem da página é português do Brasil -->
+
+<head> <!-- Cabeçalho da página: configurações, título, estilo -->
+  <meta charset="UTF-8"> <!-- Permite usar acentos, ç, etc. -->
+  <title>Contador até N</title> <!-- Nome que aparece na aba do navegador -->
+
+  <!-- Estilos (aparência visual) da página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;   /* Tipo da letra */
+      display: flex;                    /* Usa layout flexível */
+      justify-content: center;          /* Centraliza na horizontal */
+      align-items: center;              /* Centraliza na vertical */
+      height: 100vh;                    /* Altura total da tela (100% da altura) */
+      background-color: #f0f0f0;        /* Cor de fundo clara */
+    }
+
+    .container {
+      background: white;                /* Fundo branco da caixinha */
+      padding: 30px;                    /* Espaçamento interno */
+      border-radius: 10px;              /* Cantos arredondados */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra suave */
+      text-align: center;               /* Alinha o texto no centro */
+    }
+
+    input {
+      padding: 10px;       /* Espaço dentro da caixa de texto */
+      font-size: 16px;     /* Tamanho da letra */
+      margin-bottom: 10px; /* Espaço abaixo da caixa */
+      width: 200px;        /* Largura da caixa de texto */
+    }
+
+    button {
+      padding: 10px 20px;            /* Espaço interno do botão */
+      font-size: 16px;               /* Tamanho da letra */
+      cursor: pointer;               /* Mostra a mãozinha no botão */
+      background-color: #28a745;     /* Cor de fundo verde */
+      color: white;                  /* Texto branco */
+      border: none;                  /* Sem borda */
+      border-radius: 5px;            /* Cantos arredondados */
+    }
+
+    #resultado {
+      margin-top: 20px;             /* Espaço acima da área de resultado */
+      font-size: 16px;              /* Tamanho da letra */
+      text-align: left;             /* Alinha os números à esquerda */
+      max-height: 300px;            /* Altura máxima da caixa de resultado */
+      overflow-y: auto;             /* Adiciona barra de rolagem se passar do limite */
+      background-color: #e9ecef;    /* Fundo cinza claro */
+      padding: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body> <!-- Parte visível da página -->
+
+  <!-- Caixa que centraliza todo o conteúdo -->
+  <div class="container">
+    <h1>Contador de 1 até N</h1> <!-- Título grande na página -->
+
+    <!-- Caixa onde o usuário vai digitar o número -->
+    <input type="text" id="numero" placeholder="Digite um número" />
+
+    <!-- Botão que inicia a contagem -->
+    <button onclick="contarAteN()">Contar</button>
+
+    <!-- Área onde vamos mostrar os números -->
+    <div id="resultado"></div>
+  </div>
+
+  <!-- Código JavaScript -->
+  <script>
+    // Função chamada quando o usuário clica no botão
+    function contarAteN() {
+      // Pegamos o valor que o usuário digitou e tiramos os espaços
+      const valor = document.getElementById("numero").value.trim();
+
+      // Pegamos a div onde o resultado será mostrado
+      const resultado = document.getElementById("resultado");
+
+      // Apagamos o conteúdo anterior, caso haja
+      resultado.innerHTML = "";
+
+      // Verificamos se o campo está vazio
+      if (valor === "") {
+        resultado.innerHTML = "Por favor, digite um número.";
+        return; // Sai da função, nada mais acontece
+      }
+
+      // Verificamos se o valor é um número inteiro positivo
+      if (!/^\d+$/.test(valor)) {
+        resultado.innerHTML = "Digite apenas números inteiros positivos.";
+        return;
+      }
+
+      // Convertendo o texto para número
+      const numero = parseInt(valor);
+
+      // Verificamos se o número é maior ou igual a 1
+      if (numero < 1) {
+        resultado.innerHTML = "Digite um número maior ou igual a 1.";
+        return;
+      }
+
+      // Começamos a contagem de 1 até o número digitado
+      for (let i = 1; i <= numero; i++) {
+        resultado.innerHTML += i + "<br>"; // Mostramos cada número e pulamos uma linha
+      }
+    }
+  </script>
+</body>
+</html>
