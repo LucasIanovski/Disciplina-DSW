@@ -1,0 +1,13 @@
+/* estilizaçao do botão  */
+body {
+  background-color: #f8f9fa;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #28a745;
+}
