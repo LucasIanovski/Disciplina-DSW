@@ -1,0 +1,33 @@
+/* 🎨 Arquivo de estilos personalizados para a loja */
+
+/* Estiliza a logo na navbar */
+.navbar-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover; /* Garante que a imagem preencha corretamente o espaço */
+  border-radius: 50%; /* Deixa a imagem arredondada */
+}
+
+/* Estilização dos cards dos produtos */
+.card-img-top {
+  height: 200px; /* Altura fixa da imagem */
+  object-fit: contain; /* Mantém a proporção da imagem sem cortar */
+}
+
+/* Estilização do rodapé */
+footer {
+  background-color: #343a40; /* Cor escura do Bootstrap */
+}
+
+/* Busca mais elegante */
+#search {
+  max-width: 200px;
+}
+
+/* Responsividade adicional opcional */
+@media (max-width: 576px) {
+  #search {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

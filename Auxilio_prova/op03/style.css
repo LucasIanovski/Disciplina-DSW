@@ -1,0 +1,39 @@
+/* Esta classe é usada para as imagens dos produtos no card */
+.card-img-top {
+  /* Define que a imagem deve ser ajustada ao espaço sem distorcer */
+  object-fit: contain;
+
+  /* Altura fixa da imagem */
+  height: 200px;
+
+  /* Largura total do espaço do card */
+  width: 100%;
+}
+
+/* Esta classe estiliza o corpo do card (onde ficam o título e o preço) */
+.card-body {
+  /* Coloca os elementos (título e preço) um embaixo do outro */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estiliza o título do produto dentro do card */
+.card-title {
+  /* Tamanho da fonte do título */
+  font-size: 1rem;
+
+  /* Faz o título ocupar o máximo de espaço possível verticalmente */
+  flex-grow: 1;
+}
+
+/* Estiliza o preço do produto */
+.card-price {
+  /* Deixa o texto em negrito */
+  font-weight: bold;
+
+  /* Espaço acima do preço */
+  margin-top: 10px;
+
+  /* Tamanho da fonte do preço */
+  font-size: 1.2rem;
+}

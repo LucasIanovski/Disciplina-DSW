@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Loja</title>
+
+  <!-- Vincula o arquivo de estilo externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR: Parte superior do site com logo, nome, links e botão de login/cadastro -->
+  <nav class="navbar">
+    <!-- Espaço para o LOGO da loja (imagem) -->
+    <img src="https://png.pngtree.com/png-clipart/20230911/original/pngtree-minimalist-technology-logo-design-png-image_11183831.png" alt="Logo da loja" class="logo" />
+    
+    <!-- Nome da loja: você pode alterar "Minha Loja" para o nome desejado -->
+    <h1 class="brand">Minha Loja</h1>
+
+    <!-- Barra de busca -->
+    <input type="text" id="searchInput" placeholder="Buscar produtos..."/>
+
+    <!-- Botão para login/cadastro do perfil do usuário -->
+    <button class="profile-btn">Criar Perfil</button>
+  </nav>
+
+  <!-- CONTAINER DE PRODUTOS (Cards de produtos com imagem, nome e botão) -->
+  <main id="productContainer">
+    <!-- Os produtos serão inseridos aqui dinamicamente via JavaScript -->
+  </main>
+
+  <!-- RODAPÉ: informações e links úteis -->
+  <footer>
+    <div class="footer-section">
+      <h3>Sobre nós</h3>
+      <p>Somos uma loja virtual focada em qualidade, confiança e bom atendimento. Aqui você encontra o melhor.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contato</h3>
+      <p>Email: contato@minhaloja.com</p>
+      <p>Telefone: (11) 1234-5678</p>
+    </div>
+    <div class="footer-section">
+      <h3>Redes Sociais</h3>
+      <p>Instagram | Facebook | Twitter</p>
+    </div>
+  </footer>
+
+  <!-- Vincula o script JS -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* Estilização principal do CineVerse */
+
+/* Fonte e fundo padrão */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  margin: 0 10px;
+}
+
+/* Botões */
+.btn-dark {
+  background-color: #000 !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #333 !important;
+}
+
+/* Cards */
+.movie-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.movie-card img {
+  height: 400px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Footer */
+footer {
+  font-size: 0.9rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

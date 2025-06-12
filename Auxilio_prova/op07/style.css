@@ -1,0 +1,22 @@
+/* Define cor de fundo clara para o corpo da página */
+body {
+  background-color: #f8f9fa; /* tom cinza claro */
+}
+
+/* Estiliza o logo para que fique com cantos arredondados */
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+/* Adiciona sombra e arredondamento nos cards */
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra leve */
+  border-radius: 10px;
+}
+
+/* Centraliza a imagem do produto */
+.card-img-top {
+  object-fit: contain; /* mantém a imagem proporcional */
+  height: 200px;
+  padding: 10px;
+}

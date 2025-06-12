@@ -1,0 +1,21 @@
+.card-img-top {
+  object-fit: contain;
+  height: 200px;
+  width: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1rem;
+  flex-grow: 1;
+}
+
+.card-price {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}

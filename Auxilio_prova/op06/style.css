@@ -1,0 +1,20 @@
+/* Estilização adicional para o projeto */
+
+/* Estilização da imagem dos cards */
+.card-img-top {
+  height: 200px; /* Altura fixa para uniformidade */
+  object-fit: contain; /* Garante que a imagem seja encaixada proporcionalmente */
+  padding: 10px;
+  background-color: #f8f9fa;
+}
+
+/* Estilo do título dos cards */
+.card-title {
+  font-size: 1rem;
+  min-height: 40px; /* Evita quebra de layout com títulos longos */
+}
+
+/* Estilo dos botões de ordenação */
+#ordenar-crescente, #ordenar-decrescente {
+  margin-right: 5px;
+}
